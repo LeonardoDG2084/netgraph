@@ -9,10 +9,10 @@ You must create a single file from netstat output from several servers linux and
 
 # Features
 
-Option to include or exclude ports
-Compatibles with current versions from Linux and Windows
-Option to custom graph output
-Map the main propose of your servers.
+ - Option to include or exclude ports
+ - Compatibles with current versions from Linux and Windows
+ - Option to custom graph output
+ - Map the main propose of your servers.
 
 ## TO-DO
 
