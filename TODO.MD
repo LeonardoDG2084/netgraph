@@ -8,5 +8,8 @@
 - Convert netstat output from linux RHEL,CentoOS, SUSE, Ubuntu (latest version).
 - Capture process info by port.
 - Find graphwiz library to generate graphwiz
-- Custom graph
-- Generate netstat source to CSV
+- Customize graph
+- Conver Json to CSV
+- Select ports do include or exclude
+- Customize graph type (dot, neato, circo, etc..)
+- Convert IP do Hostname
