@@ -1,0 +1,4 @@
+flask
+flask-admin
+elasticsearch
+graphviz

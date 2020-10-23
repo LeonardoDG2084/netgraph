@@ -1,0 +1,9 @@
+Metadata-Version: 2.1
+Name: netgraph
+Version: 0.1.0
+Summary: Discovery connections between servers in your network
+Home-page: UNKNOWN
+License: UNKNOWN
+Description: UNKNOWN
+Platform: UNKNOWN
+Provides-Extra: dev

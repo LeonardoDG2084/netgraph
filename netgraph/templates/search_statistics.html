@@ -1,0 +1,52 @@
+{% extends "index.html" %}
+
+{% block search_statistics %} 
+<div class="tile is-parent">
+    <article class="tile notification is-info">
+      <p class="title">Search Statistics: -> </p>
+      <div class="content">
+          <table>
+              <tr>
+                  <td><b>Records returned:</b> 2 </p></td>
+                  <td><b>Time of query:</b> 2 </p></td>
+                  <td><b>IP Address:</b> 2 </p></td>
+              </tr>
+              <tr>
+                <td><b>Records returned:</b> 2 </p></td>
+                <td><b>Records returned:</b> 2 </p></td>
+                <td><b>Records returned:</b> 2 </p></td>
+              </tr>
+            </table>
+      </div>
+{% endblock search_statistics %}
+{% block graphviz_result %}
+<div id="graph" style="width: 100%; height: 100%; overflow: scroll;"></div>
+      <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+      <script type="text/javascript" src="https://cdn.rawgit.com/jquery/jquery-mousewheel/master/jquery.mousewheel.min.js"></script>
+      <script type="text/javascript" src="https://cdn.rawgit.com/jquery/jquery-color/master/jquery.color.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.4/js/bootstrap.min.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/mountainstorm/jquery.graphviz.svg/js/jquery.graphviz.svg.js"></script>
+      <script type="text/javascript">
+         $(document).ready(function(){
+                  $("#graph").graphviz({
+                      url: "./static/graphviz.svg", 
+                      ready: function() {
+                          var gv = this
+                          gv.nodes().click(function () {
+                              var $set = $()
+                              $set.push(this)
+                              $set = $set.add(gv.linkedFrom(this, true))
+                              $set = $set.add(gv.linkedTo(this, true))
+                              gv.highlight($set, true)
+                              gv.bringToFront($set)
+                          })
+                          $(document).keydown(function (evt) {
+                              if (evt.keyCode == 27) {
+                                  gv.highlight()
+                              }
+                          })
+                      }
+                  });
+              });
+      </script>
+{% endblock graphviz_result %}

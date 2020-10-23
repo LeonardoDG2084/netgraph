@@ -1,0 +1,17 @@
+elasticsearch
+flask
+flask-admin
+graphviz
+
+[dev]
+elasticsearch
+flake8
+flask-debugtoolbar
+flask-shell-ipython
+graphviz
+ipdb
+ipython
+isort
+pytest
+pytest-cov
+pytest-flask

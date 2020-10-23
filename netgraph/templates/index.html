@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+
+{% block main %}
+
+{% block find %}
+<form action="{{ url_for('site.index') }}" method="POST">
+  <div class="columns">
+    <div class="column">
+      <label class="label">Projects</label>
+      <div class="select">
+        <select>
+          <option>Select project</option>
+          {% for indice in indices %}
+          <option>{{ indice }}</option>
+          {% endfor %}
+        </select>
+      </div>
+    </div>
+    <div class="column">
+      <label class="label">Source IP</label>
+      <input class="input" type="text" placeholder="10.10.10.10" name="source_ip">
+    </div>
+    <div class="column">
+      <label class="label">Source Port</label>
+      <input class="input" type="text" placeholder="22" name="source_port">
+    </div>
+    <div class="column">
+      <label class="label">Operator</label>
+      <div class="select">
+        <select name="operator">
+          <option>OR</option>
+          <option>AND</option>
+        </select>
+      </div>
+    </div>
+    <div class="column">
+      <label class="label">Destination IP</label>
+      <input class="input" type="text" placeholder="10.10.10.10" name="destination_ip">
+    </div>
+    <div class="column">
+      <label class="label">Destination Port</label>
+      <input class="input" type="text" placeholder="80" name="destination_port">
+    </div>
+    <div class="column">
+      <label class="label" name="status">Status</label>
+      <div class="select">
+        <select>
+          <option>ESTABLISHED</option>
+          <option>TIME_WAIT</option>
+          <option>CLOSE_WAIT</option>
+        </select>
+      </div>
+    </div>
+    <div class="column">
+      <label class="label">Date</label>
+      <input class="input" type="text" placeholder="Text input">
+    </div>
+  </div>
+  <div class="buttons">
+    <button class="button is-primary is-fullwidth" type="submit">Find Connection</button>
+  </div>
+</form>
+<label class="label"></label>
+{% endblock find %}
+<section>
+  {% block search_statistics %}
+  <div class="tile is-parent">
+    <article class="tile id-child notification is-info">
+      <div class="content">
+      <p class="title">Help:</p>
+      <p class="subtitle">How-to-use few steps</p>
+        <ol>
+          <li>Install agent on nodes to collect network informations (netstat command)</li>
+          <li>Check if the project was created by agents</li>
+          <li>On project page look for connections number, this means the agents are running.</li>
+          <li>Search, fill the fields with server informations, in case all fields are blank the search will bring all records.</li>
+        </ol>
+      </div>
+      {% endblock search_statistics %}
+</section>
+<section>
+  {% block graphviz_result %}{% endblock graphviz_result %}
+</section>
+{% endblock main %}

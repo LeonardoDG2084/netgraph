@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+
+{% block main %}
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">
+        Project Manager
+      </h1>
+      <h2 class="subtitle">
+        Manage our projects
+      </h2>
+    </div>
+  </div>
+</section>
+<section>
+  <div class="container">
+    <form action="{{ url_for('site.project') }}" method="POST">
+      <div class="field">
+        <label class="label">Project Name</label>
+        <div class="control">
+          <input class="input" type="text" placeholder="Project name" name=project>
+          <p>Only lower caracters and no space</p>
+          <label class="label"></label>
+          <input class="button is-primary" type="submit" value="Submit input">
+        </div>
+    </form>
+  </div>
+</section>
+<section class="hero">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">
+        Existing projects
+      </h1>
+      <h2 class="subtitle">
+      </h2>
+    </div>
+  </div>
+</section>
+<section>
+  <div class="container is-fullhd">
+    <table class="table is-fullhd">
+      <thead>
+        <tr>
+          <th><abbr title="Project Name">Project</abbr></th>
+          <th><abbr title="Connections">Connections</abbr></th>
+          <th><abbr title="Connections">Edit</abbr></th>
+          <th><abbr title="Connections">Delete</abbr></th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for indice, count in indices.items() %}
+      </tr>
+        <td>
+          {{ indice }}
+        </td>
+        <td>
+          {{ count}}
+        </td>
+        <td>
+          <a href="{{ url_for('site.project', indice=indice, action="clean") }}"><img src="./static/folder-edit-outline.png"></a>
+        </td>
+        <td>
+          <a href="{{ url_for('site.project', indice=indice, action="delete") }}"><img src="./static/folder-remove-outline.png"></a>
+        </td>
+        <tr>
+        {% endfor %}
+      </tbody>
+    </table>
+</section>
+</div>
+{% endblock main %}
